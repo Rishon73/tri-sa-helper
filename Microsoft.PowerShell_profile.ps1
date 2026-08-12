@@ -23,7 +23,7 @@ function Tri-show()
 	Tri-launch-sim-agent
 	Tri-get-version
 	Tri-launch-dotNet-OrderView
-	tri-launch-tbox-mcp [-Port]
+	Tri-launch-TBox-MCP [-Port]
 	
 	"
 }
@@ -203,7 +203,7 @@ function Tri-launch-dotNet-OrderView()
 	start-process -FilePath "C:\TriServe\TriServeWebMonitor\Sprint1\orderview\OrderView.exe"
 }
 
-function tri-launch-tbox-mcp()
+function Tri-launch-TBox-MCP()
 {
 	param ( 
 		[int]$port = 5000
