@@ -1,6 +1,6 @@
 function Tri-get-version()
 {
-	return "v2025.1.6.a Last updated on 04/22/2025"
+	return "v2026.1.1 Last updated on 08/12/2026"
 }
 
 function Tri-show()
@@ -23,6 +23,7 @@ function Tri-show()
 	Tri-launch-sim-agent
 	Tri-get-version
 	Tri-launch-dotNet-OrderView
+	tri-launch-dex-mcp [-Port]
 	
 	"
 }
