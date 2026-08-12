@@ -208,7 +208,8 @@ function tri-launch-tbox-mcp()
 	param ( 
 		[int]$port = 5000
 	)
-	Start-Process powershell -WorkingDirectory (Join-Path (Split-Path $env:TRICENTIS_HOME) "TBox") -ArgumentList "-NoExit", "-Command", ".\Tricentis.Automation.InspectionAgent.exe run testserver --port $port"
+	write-Host "Launching TBox MCP on port $port..."
+	Start-Process powershell -WorkingDirectory (Join-Path (Split-Path $env:TRICENTIS_HOME) "TBox") -ArgumentList "-Command", ".\Tricentis.Automation.InspectionAgent.exe run testserver --port $port"
 
 	# How it works
 	# Split-Path $env:TRICENTIS_HOME → C:\Program Files (x86)\TRICENTIS\Tosca Testsuite
