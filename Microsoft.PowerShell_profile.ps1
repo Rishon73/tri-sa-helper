@@ -1,6 +1,6 @@
 function Tri-get-version()
 {
-	return "v2026.1.1 Last updated on 08/12/2026"
+	return "v2026.1.3 Last updated on 10/19/2026"
 }
 
 function Tri-show()
