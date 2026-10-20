@@ -129,35 +129,43 @@ function Tri-env-start() {
 	#Tri-launch-Tosca
 }
 
-function get-lock-file-name() {
+function get-lock-file-name {
 	$userProfile = $env:USERPROFILE
 	$lockFile = ""
 
-	switch -Wildcard ( hostname ) 	{
+	switch -Wildcard (hostname) {
 		'satosca242*' {
 			Write-Host 'satosca242'
 			$lockFile = "$userProfile\Tosca_Projects\Workspaces\tosca_24_2_core_repository\tosca_24_2_core_repository.tws.txt"
+			break
 		}
 		'satosca241*' {
 			Write-Host 'satosca241'
 			$lockFile = "$userProfile\Tosca_Projects\Workspaces\tosca_24_1_core_repository\tosca_24_1_core_repository.tws.txt"
-
+			break
 		}
 		'satosca232*' {
 			Write-Host 'satosca232'
 			$lockFile = "$userProfile\Tosca_Projects\Tosca2023.2\tosca_core_repository_v2023-2\tosca_core_repository_v2023-2.tws.txt"
-
+			break
 		}
 		'satosca231*' {
 			Write-Host 'satosca231'
 			$lockFile = "$userProfile\Tosca_Projects\Tosca2023.1\tosca_core_repository_v2023-1\tosca_core_repository_v2023-1.tws.txt"
+			break
 		}
-		{'satosca-prd*', 'satosca-zs*'} {
+		{ $_ -like 'satosca-prd*' -or $_ -like 'satosca-zs*' } {
 			Write-Host 'satosca-prd / satosca-zs'
 			$lockFile = "$userProfile\Tosca_Projects\Workspaces\tosca-prod-repo\tosca-prod-repo.tws.txt"
+			break
+		}
+		'satosca-sbx*' {
+			Write-Host 'tosca-sandbox-repo'
+			$lockFile = "$userProfile\Tosca_Projects\Workspaces\tosca-sandbox-repo\tosca-sandbox-repo.tws.txt"
+			break
 		}
 		default {
-			Write-Information 'something else'
+			Write-Warning "Unrecognized hostname: $(hostname)"
 		}
 	}
 	return $lockFile
